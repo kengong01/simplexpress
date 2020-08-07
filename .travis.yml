@@ -16,7 +16,7 @@ before_script:
 script:
   - docker version # print the version for logging
   - docker build -t ${DOCKER_USERNAME}/simplexpress .
-  - docker tag simplexpress ${DOCKER_USERNAME}/simplexpress:latest
+  - docker tag ${DOCKER_USERNAME}/simplexpress ${DOCKER_USERNAME}/simplexpress:latest
 
 after_success:
   - docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}
