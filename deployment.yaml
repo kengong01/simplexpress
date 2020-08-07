@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simplexpress
+  labels:
+    app: simplexpress
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: simplexpress
+  template:
+    metadata:
+      labels:
+        app: simplexpress
+    spec:
+      containers:
+      - name: simplexpress
+        image: bre8fy4ynyupztk2tjtfrj9bmqpmdx/simplexpress
+        ports:
+        - containerPort: 80

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: simplexpress
+  labels:
+    run: simplexpress
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+  selector:
+    run: simplexpress

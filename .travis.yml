@@ -1,0 +1,23 @@
+language: node_js
+node_js:
+  - 13
+
+services:
+  - docker
+
+# Pre-testing installs
+install:
+  - echo "nothing needs to be installed"
+
+# Scripts to be run such as tests
+before_script:
+  - echo "no tests 1"
+
+script:
+  - docker version # print the version for logging
+  - docker build -t ${DOCKER_USERNAME}/simplexpress .
+  - docker tag simplexpress ${DOCKER_USERNAME}/simplexpress:latest
+
+after_success:
+  - docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}
+  - docker push ${DOCKER_USERNAME}/simplexpress
