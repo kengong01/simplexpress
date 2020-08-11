@@ -5,7 +5,7 @@ node_js:
 services:
   - docker
 
-# Pre-testing install stuff
+# Pre-testing installs
 install:
   - echo "nothing needs to be installed"
 
@@ -15,10 +15,10 @@ before_script:
 
 script:
   - docker version # print the version for logging
-  - docker build -t ${DOCKER_USERNAME}/simple-reverse-proxy .
-  - docker tag simple-reverse-proxy ${DOCKER_USERNAME}/simple-reverse-proxy:latest
+  - docker build -t ${DOCKER_USERNAME}/simplexpress .
+  - docker tag ${DOCKER_USERNAME}/simplexpress ${DOCKER_USERNAME}/simplexpress:latest
 
 after_success:
   - docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}
-  - docker push ${DOCKER_USERNAME}/simple-reverse-proxy
+  - docker push ${DOCKER_USERNAME}/simplexpress
 
