@@ -15,9 +15,10 @@ before_script:
 
 script:
   - docker version # print the version for logging
-  - docker build -t ${DOCKER_USERNAME}/simplexpress .
-  - docker tag ${DOCKER_USERNAME}/simplexpress ${DOCKER_USERNAME}/simplexpress:latest
+  - docker build -t ${DOCKER_USERNAME}/simple-reverse-proxy .
+  - docker tag simple-reverse-proxy ${DOCKER_USERNAME}/simple-reverse-proxy:latest
 
 after_success:
   - docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}
-  - docker push ${DOCKER_USERNAME}/simplexpress
+  - docker push ${DOCKER_USERNAME}/simple-reverse-proxy
+
